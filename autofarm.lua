@@ -367,28 +367,10 @@ local function getAllMonsters(mobName)
 end
 
 -- ═══════════════════════════════════════════════════════════
--- ฟังก์ชันปรับเลือดด้วย Heartbeat (แก้บัคมือถือ)
--- ═══════════════════════════════════════════════════════════
-local function setHealthWithHeartbeat(humanoid, targetHealth)
-    if not humanoid or not humanoid.Parent then return false end
-    
-    -- ใช้ Heartbeat แทน wait
-    local attempts = 0
-    local maxAttempts = 10
-    
-    while attempts < maxAttempts and humanoid.Health ~= targetHealth do
-        humanoid.Health = targetHealth
-        RunService.Heartbeat:Wait()
-        attempts = attempts + 1
-    end
-    
-    return humanoid.Health == targetHealth
-end
-
--- ═══════════════════════════════════════════════════════════
--- ฟังก์ชันประมวลผลมอนตัวเดียว (ใช้ RunService)
+-- ฟังก์ชันประมวลผลมอนตัวเดียว (ใช้ซอสเดิม + ปรับให้มือถือเล่นได้)
 -- ═══════════════════════════════════════════════════════════
 local function processMonster(monster)
+    -- เช็คว่ามอนยังอยู่ไหม
     if not monster or not monster.Parent then 
         return false 
     end
@@ -396,6 +378,7 @@ local function processMonster(monster)
     local humanoid = monster:FindFirstChild("Humanoid")
     local isDead = monster:FindFirstChild("Died")
     
+    -- เช็คว่าตายแล้วหรือยัง
     if isDead then
         return true
     end
@@ -408,18 +391,13 @@ local function processMonster(monster)
     if not teleportToMonster(monster) then
         return false
     end
-    
-    -- รอด้วย Heartbeat แทน wait
-    for i = 1, 3 do
-        RunService.Heartbeat:Wait()
-    end
+    smartWait(0.1)
     
     -- เช็คเลือดปัจจุบัน
     local currentHealth = humanoid.Health
     
     -- 🔴 กรณีที่ 1: เลือดมากกว่า 100
     if currentHealth > 100 then
-        print("🔵 เลือดมาก กำลังปรับ...")
         local initialHealth = currentHealth
         local maxAttempts = 50
         local attempts = 0
@@ -431,48 +409,40 @@ local function processMonster(monster)
             lockPlayer()
             attackMonster(monster)
             
-            -- รอด้วย Heartbeat
-            for i = 1, 5 do
-                RunService.Heartbeat:Wait()
-            end
+            smartWait(0.15)
             
+            -- เช็คเลือดว่ายุบหรือยัง
             if humanoid.Health < initialHealth then
                 healthDropped = true
-                print("✅ เลือดยุบแล้ว!")
             end
         end
         
         if healthDropped then
-            for i = 1, 3 do
-                RunService.Heartbeat:Wait()
-            end
-            setHealthWithHeartbeat(humanoid, 0)
+            smartWait(0.1)
+            -- ใช้วิธีเดิม: set เลือดตรงๆ
+            humanoid.Health = 0
         end
     
     -- 🔴 กรณีที่ 2: เลือด = 0
     elseif currentHealth <= 0 then
-        print("🟡 เลือด 0 กำลังปรับเป็น 1...")
-        setHealthWithHeartbeat(humanoid, 1)
-        
-        for i = 1, 3 do
-            RunService.Heartbeat:Wait()
-        end
+        -- ใช้วิธีเดิม: set เลือดตรงๆ
+        humanoid.Health = 1
+        smartWait(0.1)
         
         -- ตีมอน 3 ครั้ง
         for i = 1, 3 do
             lockPlayer()
             attackMonster(monster)
-            RunService.Heartbeat:Wait()
+            smartWait(0.03)
         end
     
     -- 🔴 กรณีที่ 3: เลือด = 1
     elseif currentHealth == 1 then
-        print("🟢 เลือด 1 กำลังตี...")
         -- ตีมอน 3 ครั้ง
         for i = 1, 3 do
             lockPlayer()
             attackMonster(monster)
-            RunService.Heartbeat:Wait()
+            smartWait(0.03)
         end
     end
     
