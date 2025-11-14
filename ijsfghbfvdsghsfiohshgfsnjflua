@@ -1,0 +1,898 @@
+local a,
+b,
+c,
+d,
+e=game:GetService"Players",game:GetService"TweenService",game:GetService"RunService",game:GetService"UserInputService",game:GetService"CoreGui"
+
+local f=a.LocalPlayer
+local g=f.Character or f.CharacterAdded:Wait()
+local h,
+
+
+
+
+i,
+j,
+k,
+l,
+m,
+n,
+
+
+
+
+o,
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+p=g:WaitForChild"HumanoidRootPart",false,false,false,6,nil,500,{{Name="Quest_Thugs",NpcName="Quest Npc 1",MinLevel=1,MaxLevel=9,QuestPos=Vector3.new(-659.931641,5.87902355,304.040009),MobPos=Vector3.new(-606.735779,4.77173042,221.682709),MobName="Thug"},{Name="Quest_MetalVandals",NpcName="Quest Npc 3",MinLevel=10,MaxLevel=14,QuestPos=Vector3.new(-348.96463,5.19995594,590.627319),MobPos=Vector3.new(-289.957733,4.77173042,633.297607),MobName="Metal Vandal"},{Name="Quest_StolenCar",NpcName="Quest Npc 4",MinLevel=15,MaxLevel=24,QuestPos=Vector3.new(-443.34375,5.240767,278.011932),MobPos=Vector3.new(-387.91806,4.71038961,249.266663),MobName="Car Thief"},{Name="Quest_Criminals",NpcName="Quest Npc 5",MinLevel=25,MaxLevel=39,QuestPos=Vector3.new(11.0609426,5.19995642,654.748413),MobPos=Vector3.new(66.256958,4.77172995,593.1073),MobName="Criminal"},{Name="Quest_Suitcase",NpcName="Quest Npc 7",MinLevel=40,MaxLevel=54,QuestPos=Vector3.new(-632.111816,10.096302,1457.58203),MobPos=Vector3.new(-726.91571,4.70053768,1456.18677),MobName="Metal Vandal Suitcase"},{Name="Quest_MetalVandalJunkYard",NpcName="Quest Npc 8",MinLevel=55,MaxLevel=69,QuestPos=Vector3.new(-801.652588,4.61632395,1574.06042),MobPos=Vector3.new(-852.25415,4.61632395,1769.42664),MobName="Metal Vandal Junk Yard"},{Name="Quest_HenchmanSmugglers",NpcName="Quest Npc 9",MinLevel=70,MaxLevel=79,QuestPos=Vector3.new(-803.456543,4.71822119,295.061462),MobPos=Vector3.new(-835.649841,4.88055849,324.7323),MobName="Henchman Smuggler"},{Name="Quest_Smugglers",NpcName="Quest Npc 10",MinLevel=80,MaxLevel=94,QuestPos=Vector3.new(-891.342712,4.88055849,7.51156759),MobPos=Vector3.new(-1065.92932,4.57889605,-18.7315578),MobName="Smuggler"},{Name="Quest_LesserSmugglers",NpcName="Quest Npc 11",MinLevel=95,MaxLevel=114,QuestPos=Vector3.new(-1190.58936,4.88055849,42.0932388),MobPos=Vector3.new(-1151.75305,16.4867039,163.69606),MobName="Lesser Smuggler"},{Name="Quest_MidSmugglers",NpcName="Quest Npc 12",MinLevel=115,MaxLevel=124,QuestPos=Vector3.new(-1008.36218,4.95367956,102.601234),MobPos=Vector3.new(-1014.48102,5.39058352,120.154144),MobName="Mid Smuggler"},{Name="Quest_ExpertSmugglers",NpcName="Quest Npc 13",MinLevel=125,MaxLevel=159,QuestPos=Vector3.new(-1586.40234,5.49385881,422.442841),MobPos=Vector3.new(-1736.20117,4.88034105,412.896606),MobName="Expert Smuggler"},{Name="Quest_HammerHeadHencheman",NpcName="Quest Npc 15",MinLevel=160,MaxLevel=169,QuestPos=Vector3.new(247.266159,4.97061729,1581.08545),MobPos=Vector3.new(298.336182,4.4204545,1695.77783),MobName="Hammer Head Henchman"},{Name="Quest_HammerHeadArmedHenchman",NpcName="Quest Npc 16",MinLevel=170,MaxLevel=229,QuestPos=Vector3.new(-25.8854771,4.67759991,1557.00159),MobPos=Vector3.new(7.63645172,4.67759991,1603.43408),MobName="Hammer Head Armed Henchman"},{Name="Quest_SonicStudents",NpcName="Quest Npc 19",MinLevel=230,MaxLevel=244,QuestPos=Vector3.new(1165.32446,60.8144875,990.216309),MobPos=Vector3.new(1138.70544,61.6458855,1077.83533),MobName="Sonic Student"},{Name="Quest_ExperiencedSonicStudent",NpcName="Quest Npc 20",MinLevel=245,MaxLevel=314,QuestPos=Vector3.new(1118.50146,60.8144913,1170.75928),MobPos=Vector3.new(1157.26355,61.646019,1252.72864),MobName="Experienced Sonic Student"},{Name="Quest_AlienInvaders",NpcName="Quest Npc 22",MinLevel=315,MaxLevel=99999999999,QuestPos=Vector3.new(146.447968,2.88605499,2142.03662),MobPos=Vector3.new(-23.0928211,-0.226721138,2269.96729),MobName="Alien Invader"},},Instance.new"ScreenGui"
+p.Name="LuxuryFarmUI"
+p.ResetOnSpawn=false
+p.ZIndexBehavior=Enum.ZIndexBehavior.Sibling
+p.DisplayOrder=999999999
+
+
+local q=pcall(function()
+p.Parent=e
+end)
+
+if not q then
+p.Parent=f:WaitForChild"PlayerGui"
+end
+
+
+local r=Instance.new"Frame"
+r.Name="MainFrame"
+r.Size=UDim2.new(0,380,0,480)
+r.Position=UDim2.new(0.5,-190,0.5,-240)
+r.BackgroundColor3=Color3.fromRGB(15,15,20)
+r.BorderSizePixel=0
+r.Active=true
+r.Draggable=true
+r.Parent=p
+
+
+local s=Instance.new"UICorner"
+s.CornerRadius=UDim.new(0,20)
+s.Parent=r
+
+
+local t=Instance.new"ImageLabel"
+t.Name="Shadow"
+t.Size=UDim2.new(1,30,1,30)
+t.Position=UDim2.new(0,-15,0,-15)
+t.BackgroundTransparency=1
+t.Image="rbxasset://textures/ui/GuiImagePlaceholder.png"
+t.ImageColor3=Color3.fromRGB(0,0,0)
+t.ImageTransparency=0.5
+t.ScaleType=Enum.ScaleType.Slice
+t.SliceCenter=Rect.new(10,10,118,118)
+t.ZIndex=0
+t.Parent=r
+
+
+local u=Instance.new"Frame"
+u.Name="HeaderBar"
+u.Size=UDim2.new(1,0,0,60)
+u.BackgroundColor3=Color3.fromRGB(218,165,32)
+u.BorderSizePixel=0
+u.Parent=r
+
+local v=Instance.new"UICorner"
+v.CornerRadius=UDim.new(0,20)
+v.Parent=u
+
+
+local w=Instance.new"Frame"
+w.Size=UDim2.new(1,0,0,20)
+w.Position=UDim2.new(0,0,1,-20)
+w.BackgroundColor3=Color3.fromRGB(218,165,32)
+w.BorderSizePixel=0
+w.Parent=u
+
+
+local x=Instance.new"TextLabel"
+x.Name="Title"
+x.Size=UDim2.new(1,-100,1,0)
+x.Position=UDim2.new(0,20,0,0)
+x.BackgroundTransparency=1
+x.Font=Enum.Font.GothamBold
+x.Text="⚡ LUXURY AUTO FARM"
+x.TextColor3=Color3.fromRGB(255,255,255)
+x.TextSize=20
+x.TextXAlignment=Enum.TextXAlignment.Left
+x.Parent=u
+
+
+local y=Instance.new"TextLabel"
+y.Name="StatusLabel"
+y.Size=UDim2.new(1,-40,0,20)
+y.Position=UDim2.new(0,20,0,35)
+y.BackgroundTransparency=1
+y.Font=Enum.Font.Gotham
+y.Text="Level: 1 | Status: Idle"
+y.TextColor3=Color3.fromRGB(200,200,200)
+y.TextSize=12
+y.TextXAlignment=Enum.TextXAlignment.Left
+y.Parent=u
+
+
+local z=Instance.new"TextButton"
+z.Name="CloseButton"
+z.Size=UDim2.new(0,40,0,40)
+z.Position=UDim2.new(1,-50,0,10)
+z.BackgroundColor3=Color3.fromRGB(220,53,69)
+z.BorderSizePixel=0
+z.Font=Enum.Font.GothamBold
+z.Text="✕"
+z.TextColor3=Color3.fromRGB(255,255,255)
+z.TextSize=20
+z.Parent=u
+
+local A=Instance.new"UICorner"
+A.CornerRadius=UDim.new(0,10)
+A.Parent=z
+
+
+local B=Instance.new"ScrollingFrame"
+B.Name="Container"
+B.Size=UDim2.new(1,-40,1,-90)
+B.Position=UDim2.new(0,20,0,70)
+B.BackgroundTransparency=1
+B.BorderSizePixel=0
+B.ScrollBarThickness=6
+B.ScrollBarImageColor3=Color3.fromRGB(218,165,32)
+B.CanvasSize=UDim2.new(0,0,0,0)
+B.Parent=r
+
+local C=Instance.new"UIListLayout"
+C.SortOrder=Enum.SortOrder.LayoutOrder
+C.Padding=UDim.new(0,15)
+C.Parent=B
+
+
+local function CreateToggleButton(D,E,F)
+local G=Instance.new"Frame"
+G.Name=D.."Frame"
+G.Size=UDim2.new(1,0,0,70)
+G.BackgroundColor3=Color3.fromRGB(25,25,35)
+G.BorderSizePixel=0
+G.LayoutOrder=F
+G.Parent=B
+
+local H=Instance.new"UICorner"
+H.CornerRadius=UDim.new(0,12)
+H.Parent=G
+
+local I=Instance.new"TextLabel"
+I.Size=UDim2.new(1,-120,1,0)
+I.Position=UDim2.new(0,15,0,0)
+I.BackgroundTransparency=1
+I.Font=Enum.Font.GothamBold
+I.Text=E
+I.TextColor3=Color3.fromRGB(255,255,255)
+I.TextSize=16
+I.TextXAlignment=Enum.TextXAlignment.Left
+I.Parent=G
+
+local J=Instance.new"TextButton"
+J.Name=D
+J.Size=UDim2.new(0,90,0,45)
+J.Position=UDim2.new(1,-100,0.5,-22.5)
+J.BackgroundColor3=Color3.fromRGB(220,53,69)
+J.BorderSizePixel=0
+J.Font=Enum.Font.GothamBold
+J.Text="OFF"
+J.TextColor3=Color3.fromRGB(255,255,255)
+J.TextSize=14
+J.Parent=G
+
+local K=Instance.new"UICorner"
+K.CornerRadius=UDim.new(0,10)
+K.Parent=J
+
+return J
+end
+
+
+local D,
+E,
+F,
+
+
+G=CreateToggleButton("FarmToggle","🎯 Auto Farm",1),CreateToggleButton("QuestToggle","📋 Auto Quest",2),CreateToggleButton("RebirthToggle","🔄 Auto Rebirth",3),Instance.new"TextLabel"
+G.Size=UDim2.new(1,0,0,30)
+G.Position=UDim2.new(0,0,1,-35)
+G.BackgroundTransparency=1
+G.Font=Enum.Font.GothamBold
+G.Text="Made with ❤️ by Edited Hub"
+G.TextColor3=Color3.fromRGB(218,165,32)
+G.TextSize=12
+G.Parent=r
+
+
+local H=Instance.new"TextButton"
+H.Name="ToggleUIButton"
+H.Size=UDim2.new(0,60,0,60)
+H.Position=UDim2.new(0,20,0,100)
+H.BackgroundColor3=Color3.fromRGB(218,165,32)
+H.BorderSizePixel=0
+H.Font=Enum.Font.GothamBold
+H.Text="⚡"
+H.TextColor3=Color3.fromRGB(255,255,255)
+H.TextSize=30
+H.Active=true
+H.Draggable=true
+H.Parent=p
+
+local I=Instance.new"UICorner"
+I.CornerRadius=UDim.new(1,0)
+I.Parent=H
+
+
+
+
+local function UpdateButtonState(J,K)
+if K then
+J.BackgroundColor3=Color3.fromRGB(40,167,69)
+J.Text="ON"
+
+b:Create(J,TweenInfo.new(0.3),{
+BackgroundColor3=Color3.fromRGB(40,167,69)
+}):Play()
+else
+J.BackgroundColor3=Color3.fromRGB(220,53,69)
+J.Text="OFF"
+
+b:Create(J,TweenInfo.new(0.3),{
+BackgroundColor3=Color3.fromRGB(220,53,69)
+}):Play()
+end
+end
+
+local function UpdateStatusLabel()
+local J,
+K=GetPlayerLevel(),"Idle"
+
+if i then
+K=j and"Farming + Quest"or"Farming Only"
+end
+
+y.Text=string.format("Level: %d | Status: %s",J,K)
+end
+
+
+
+
+function GetPlayerLevel()
+local J,K=pcall(function()
+return f.Build.DataStore.Level.Value
+end)
+
+if J and K then
+return K
+end
+
+return 1
+end
+
+
+
+
+local function GetSuitableQuest()
+local J=GetPlayerLevel()
+
+for K,L in ipairs(o)do
+if J>=L.MinLevel and J<=L.MaxLevel then
+return L
+end
+end
+
+return nil
+end
+
+
+
+
+local function HasQuest()
+local J,K=pcall(function()
+local J=f.PlayerGui.MainUI.GameplayUI.Quest
+return J.Visible
+end)
+
+return J and K or false
+end
+
+
+
+
+local function GetCurrentQuestMobName()
+local J,K=pcall(function()
+local J=f.PlayerGui.MainUI.GameplayUI.Quest.Description.Task.ObjectiveValue.Text
+
+local K=J:match"^(.-)%s+%d+/%d+"
+if not K then
+K=J:match"^(.-)%s+%d+$"or J
+end
+return K:gsub("^%s*(.-)%s*$","%1")
+end)
+
+if J and K then
+print("📋 ชื่อมอนในเควส: '"..K.."'")
+return K
+end
+
+return nil
+end
+
+
+
+
+local function CancelQuest()
+print"❌ กำลังยกเลิกเควส..."
+
+local J=pcall(function()
+local J={
+"_callQuests",
+nil,
+"Cancel"
+}
+f:WaitForChild"Build":WaitForChild"Remotes":WaitForChild"ServerRequest":FireServer(unpack(J))
+end)
+
+if J then
+print"✅ ส่งคำสั่งยกเลิกเควสแล้ว"
+else
+print"⚠️ ไม่สามารถยกเลิกเควสได้"
+end
+
+wait(1)
+end
+
+
+
+
+local function TweenToPosition(J)
+if not g or not h then
+return
+end
+
+h.Anchored=false
+
+local K=(h.Position-J).Magnitude
+local L,
+
+M=K/n,CFrame.new(J)
+local N=b:Create(
+h,
+TweenInfo.new(L,Enum.EasingStyle.Linear),
+{CFrame=M}
+)
+
+N:Play()
+N.Completed:Wait()
+task.wait(0.2)
+end
+
+
+
+
+local function AcceptQuest(J)
+TweenToPosition(J.QuestPos)
+task.wait(0.1)
+
+local K=pcall(function()
+local K=workspace.World.Characters.Interactable:FindFirstChild(J.NpcName)
+if not K then
+error("ไม่พบ NPC: "..J.NpcName)
+end
+
+f.Build.Remotes.ServerRequest:FireServer(
+"_callQuests",
+K,
+J.Name
+)
+end)
+
+if K then
+task.wait(0.2)
+return HasQuest()
+end
+
+return false
+end
+
+
+
+
+local function teleportToMonster(J)
+local K=J:FindFirstChild"HumanoidRootPart"
+
+if K and h then
+local L=K.Position+(K.CFrame.LookVector*l)
+h.CFrame=CFrame.new(L,K.Position)
+m=h.CFrame
+return true
+end
+
+return false
+end
+
+
+local function lockPlayer()
+if h and m then
+h.CFrame=m
+h.Velocity=Vector3.new(0,0,0)
+h.RotVelocity=Vector3.new(0,0,0)
+end
+end
+
+
+local function attackMonster(J)
+if not J or not J.Parent then return false end
+
+local K,L=pcall(function()
+local K={
+"_callCombat",
+2,
+{J},
+{},
+false
+}
+
+f:WaitForChild"Build":WaitForChild"Remotes":WaitForChild"ServerRequest":FireServer(unpack(K))
+end)
+
+return K
+end
+
+
+local function getAllMonsters(J)
+local K={}
+
+if workspace:FindFirstChild"World"and workspace.World:FindFirstChild"Characters"then
+local L=workspace.World.Characters:FindFirstChild"Non Player Character"
+
+if L then
+for M,N in ipairs(L:GetChildren())do
+if N.Name==J then
+table.insert(K,N)
+end
+end
+end
+end
+
+return K
+end
+
+
+
+
+local function processMonster(J)
+if not J or not J.Parent then
+return false
+end
+
+local K,
+L=J:FindFirstChild"Humanoid",J:FindFirstChild"Died"
+
+if L then
+return true
+end
+
+if not K then
+return true
+end
+
+if not teleportToMonster(J)then
+return false
+end
+wait(0.1)
+
+local M=K.Health
+
+if M>100 then
+local N,
+O,
+P,
+Q=M,50,0,false
+
+while P<O and not Q do
+P=P+1
+
+lockPlayer()
+attackMonster(J)
+
+wait(0.15)
+
+if K.Health<N then
+Q=true
+end
+end
+
+if Q then
+wait(0.1)
+K.Health=0
+end
+
+elseif M<=0 then
+K.Health=1
+wait(0.1)
+
+for N=1,3 do
+lockPlayer()
+attackMonster(J)
+wait(0.03)
+end
+
+elseif M==1 then
+for N=1,3 do
+lockPlayer()
+attackMonster(J)
+wait(0.03)
+end
+end
+
+return true
+end
+
+
+
+
+spawn(function()
+while true do
+wait(5)
+
+if k then
+pcall(function()
+local J={"Rebirth"}
+f:WaitForChild"Build":WaitForChild"Remotes":WaitForChild"ServerRequest":FireServer(unpack(J))
+end)
+end
+end
+end)
+
+
+
+
+spawn(function()
+while true do
+wait(0.01)
+if i and m then
+lockPlayer()
+end
+end
+end)
+
+
+
+
+spawn(function()
+while true do
+wait(1)
+UpdateStatusLabel()
+end
+end)
+
+
+
+
+spawn(function()
+while true do
+wait(0.02)
+
+if not i then
+wait(0.5)
+continue
+end
+
+g=f.Character
+if not g then
+wait(0.2)
+continue
+end
+
+h=g:FindFirstChild"HumanoidRootPart"
+if not h then
+wait(0.25)
+continue
+end
+
+
+
+
+local J=GetSuitableQuest()
+if not J then
+wait(1)
+continue
+end
+
+
+if j then
+local K=HasQuest()
+
+
+if K then
+local L=GetCurrentQuestMobName()
+
+
+if L and L~=J.MobName then
+print("⚠️ เควสไม่ตรงกับมอน! เควส: "..L.." | ควรฟาร์ม: "..J.MobName)
+CancelQuest()
+K=false
+end
+end
+
+
+if not K then
+AcceptQuest(J)
+wait(0.5)
+K=HasQuest()
+
+if not K then
+wait(1)
+continue
+end
+end
+
+
+if not K then
+wait(0.5)
+continue
+end
+end
+
+
+TweenToPosition(J.MobPos)
+wait(0.25)
+
+
+local K=getAllMonsters(J.MobName)
+
+if#K==0 then
+m=nil
+wait(0.5)
+continue
+end
+
+
+for L=1,#K do
+if not i then break end
+
+
+if j and not HasQuest()then
+m=nil
+break
+end
+
+local M=K[L]
+processMonster(M)
+wait(0.1)
+end
+
+m=nil
+wait(0.25)
+end
+end)
+
+
+
+
+
+
+D.MouseButton1Click:Connect(function()
+i=not i
+UpdateButtonState(D,i)
+
+if not i then
+m=nil
+end
+
+print"====================================="
+print("🎮 ระบบฟาร์ม: "..(i and"เปิด ✅"or"ปิด ❌"))
+print"====================================="
+end)
+
+
+E.MouseButton1Click:Connect(function()
+j=not j
+UpdateButtonState(E,j)
+
+print"====================================="
+print("📋 ระบบเควสอัตโนมัติ: "..(j and"เปิด ✅"or"ปิด ❌"))
+print"====================================="
+end)
+
+
+F.MouseButton1Click:Connect(function()
+k=not k
+UpdateButtonState(F,k)
+
+print"====================================="
+print("🔄 ระบบ Auto Rebirth: "..(k and"เปิด ✅"or"ปิด ❌"))
+print"====================================="
+end)
+
+
+z.MouseButton1Click:Connect(function()
+r.Visible=false
+
+
+b:Create(r,TweenInfo.new(0.3),{
+Size=UDim2.new(0,0,0,0)
+}):Play()
+
+wait(0.3)
+r.Visible=false
+end)
+
+
+H.MouseButton1Click:Connect(function()
+r.Visible=not r.Visible
+
+if r.Visible then
+r.Size=UDim2.new(0,0,0,0)
+r.Visible=true
+
+b:Create(r,TweenInfo.new(0.3,Enum.EasingStyle.Back),{
+Size=UDim2.new(0,380,0,480)
+}):Play()
+else
+b:Create(r,TweenInfo.new(0.3),{
+Size=UDim2.new(0,0,0,0)
+}):Play()
+
+wait(0.3)
+r.Visible=false
+end
+end)
+
+C:GetPropertyChangedSignal"AbsoluteContentSize":Connect(function()
+B.CanvasSize=UDim2.new(0,0,0,C.AbsoluteContentSize.Y+20)
+end)
